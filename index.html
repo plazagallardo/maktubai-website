@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktub AI - Your Sales Destiny Awaits</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #1a1a1a;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(26, 26, 26, 0.98);
+            box-shadow: 0 2px 30px rgba(0, 255, 65, 0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ff41;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00ff41;
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00ff41;
+            box-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-switcher {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 0.3rem;
+            border: 1px solid rgba(0, 255, 65, 0.4);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: none;
+            color: #b0b0b0;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .lang-btn.active {
+            background: #00ff41;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            text-shadow: none;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: #00ff41;
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, #00ffff, #ff006e);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a3e 50%, #26314e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 65, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 65, 0.08) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: #00ff41;
+            color: #000000;
+            box-shadow: 0 6px 20px rgba(0, 255, 65, 0.4);
+            font-weight: 700;
+            text-shadow: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 255, 65, 0.6);
+            background: #00e63b;
+            color: #000000;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00ff41;
+            border: 2px solid #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: #00ff41;
+            color: #000000;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 255, 65, 0.5);
+            text-shadow: none;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: #1a1a1a;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 255, 255, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a3e 100%);
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .use-case-card:hover {
+            transform: scale(1.05);
+            border-color: #00ff41;
+            box-shadow: 0 15px 30px rgba(0, 255, 65, 0.3);
+        }
+
+        .use-case-icon {
+            font-size: 2.5rem;
+            color: #00ff41;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 12px rgba(0, 255, 65, 0.6);
+        }
+
+        .use-case-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card p {
+            color: #b0b0b0;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: #1a1a1a;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 255, 65, 0.08));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: #00ff41;
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.12), rgba(0, 255, 65, 0.08));
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ff41;
+            color: #000000;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3);
+        }
+
+        .pricing-card h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ff41;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .price-period {
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00ff41;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #2a2a3e 0%, #1a1a1a 100%);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 1px solid rgba(0, 255, 65, 0.4);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #666;
+        }
+
+        .contact-form textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem 2rem;
+            background: #1a1a1a;
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #00ffff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #b0b0b0;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00ffff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+            color: #666;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Maktub AI</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
+                <li><a href="#features" data-en="Features" data-es="Características">Features</a></li>
+                <li><a href="#use-cases" data-en="Use Cases" data-es="Casos de Uso">Use Cases</a></li>
+                <li><a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a></li>
+                <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-en="AI-Powered Sales Automation That Delivers Results" data-es="Automatización de Ventas con IA Que Entrega Resultados">AI-Powered Sales Automation That Delivers Results</h1>
+            <p data-en="Deploy intelligent sales bots that work 24/7 to convert leads, close deals, and scale your revenue. With Maktub AI, your success isn't left to chance – it's written in code." data-es="Despliega bots de ventas inteligentes que trabajen 24/7 para convertir clientes potenciales, cerrar tratos y escalar tus ingresos. Con Maktub AI, tu éxito no se deja al azar: está escrito en código.">Deploy intelligent sales bots that work 24/7 to convert leads, close deals, and scale your revenue. With Maktub AI, your success isn't left to chance – it's written in code.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary" data-en="Start Free Trial" data-es="Comenzar Prueba Gratuita">Start Free Trial</a>
+                <a href="#features" class="btn-secondary" data-en="View Demo" data-es="Ver Demo">View Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="Predetermined Success Features" data-es="Características de Éxito Predeterminado">Predetermined Success Features</h2>
+                <p data-en="Every algorithm is designed to ensure your victory is inevitable – because with Maktub AI, success is written in the code" data-es="Cada algoritmo está diseñado para asegurar que tu victoria sea inevitable: porque con Maktub AI, el éxito está escrito en el código">Every algorithm is designed to ensure your victory is inevitable – because with Maktub AI, success is written in the code</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-en="Destined Conversations" data-es="Conversaciones Destinadas">Destined Conversations</h3>
+                    <p data-en="Every interaction is meaningful. Our AI doesn't just chat – it guides prospects along their predetermined journey to becoming customers." data-es="Cada interacción es significativa. Nuestra IA no solo conversa: guía a los prospectos en su viaje predeterminado para convertirse en clientes.">Every interaction is meaningful. Our AI doesn't just chat – it guides prospects along their predetermined journey to becoming customers.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-en="Prophetic Analytics" data-es="Analíticas Proféticas">Prophetic Analytics</h3>
+                    <p data-en="Predict customer behavior and sales outcomes with AI that sees patterns others miss. Your success story unfolds in real-time data." data-es="Predice el comportamiento del cliente y los resultados de ventas con IA que ve patrones que otros pierden. Tu historia de éxito se desarrolla en datos en tiempo real.">Predict customer behavior and sales outcomes with AI that sees patterns others miss. Your success story unfolds in real-time data.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 data-en="Seamless Fate Integration" data-es="Integración Perfecta del Destino">Seamless Fate Integration</h3>
+                    <p data-en="Connect with your existing systems effortlessly. When technology aligns with destiny, integration becomes inevitable." data-es="Conecta con tus sistemas existentes sin esfuerzo. Cuando la tecnología se alinea con el destino, la integración se vuelve inevitable.">Connect with your existing systems effortlessly. When technology aligns with destiny, integration becomes inevitable.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 data-en="Eternal Vigilance" data-es="Vigilancia Eterna">Eternal Vigilance</h3>
+                    <p data-en="Like destiny itself, Maktub AI never sleeps. Capture every opportunity across all timezones – your success knows no boundaries." data-es="Como el destino mismo, Maktub AI nunca duerme. Captura cada oportunidad en todas las zonas horarias: tu éxito no conoce límites.">Like destiny itself, Maktub AI never sleeps. Capture every opportunity across all timezones – your success knows no boundaries.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 data-en="Multi-language Support" data-es="Soporte Multiidioma">Multi-language Support</h3>
+                    <p data-en="Expand globally with AI bots that communicate fluently in multiple languages, adapting to local markets." data-es="Expándete globalmente con bots de IA que se comunican fluidamente en múltiples idiomas, adaptándose a mercados locales.">Expand globally with AI bots that communicate fluently in multiple languages, adapting to local markets.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-en="Enterprise Security" data-es="Seguridad Empresarial">Enterprise Security</h3>
+                    <p data-en="Bank-level security ensures your customer data and conversations are protected with industry-leading encryption." data-es="La seguridad de nivel bancario garantiza que los datos de tus clientes y conversaciones estén protegidos con encriptación líder en la industria.">Bank-level security ensures your customer data and conversations are protected with industry-leading encryption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="use-cases" class="use-cases">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="Written for Every Destiny" data-es="Escrito para Cada Destino">Written for Every Destiny</h2>
+                <p data-en="No matter your industry, Maktub AI adapts to fulfill your unique path to success" data-es="Sin importar tu industria, Maktub AI se adapta para cumplir tu camino único hacia el éxito">No matter your industry, Maktub AI adapts to fulfill your unique path to success</p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 data-en="E-commerce" data-es="Comercio Electrónico">E-commerce</h3>
+                    <p data-en="Boost online sales with product recommendations and instant customer support" data-es="Impulsa las ventas en línea con recomendaciones de productos y soporte instantáneo al cliente">Boost online sales with product recommendations and instant customer support</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 data-en="Real Estate" data-es="Bienes Raíces">Real Estate</h3>
+                    <p data-en="Qualify leads and schedule viewings automatically" data-es="Califica clientes potenciales y programa visitas automáticamente">Qualify leads and schedule viewings automatically</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 data-en="Automotive" data-es="Automotriz">Automotive</h3>
+                    <p data-en="Guide customers through vehicle selection and financing options" data-es="Guía a los clientes a través de la selección de vehículos y opciones de financiamiento">Guide customers through vehicle selection and financing options</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 data-en="Healthcare" data-es="Salud">Healthcare</h3>
+                    <p data-en="Schedule appointments and provide initial patient screening" data-es="Programa citas y proporciona evaluación inicial de pacientes">Schedule appointments and provide initial patient screening</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 data-en="Education" data-es="Educación">Education</h3>
+                    <p data-en="Enroll students and answer course-related questions" data-es="Inscribe estudiantes y responde preguntas relacionadas con cursos">Enroll students and answer course-related questions</p>
+                </div>
+                <div class="use-case-card fade-in">
+                    <div class="use-case-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 data-en="B2B Services" data-es="Servicios B2B">B2B Services</h3>
+                    <p data-en="Generate and qualify enterprise leads efficiently" data-es="Genera y califica clientes potenciales empresariales eficientemente">Generate and qualify enterprise leads efficiently</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="Choose Your Destiny" data-es="Elige Tu Destino">Choose Your Destiny</h2>
+                <p data-en="Every journey begins with a single step. Choose the path that's written for you." data-es="Cada viaje comienza con un solo paso. Elige el camino que está escrito para ti.">Every journey begins with a single step. Choose the path that's written for you.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3 data-en="Starter" data-es="Iniciador">Starter</h3>
+                    <div class="price">$99</div>
+                    <div class="price-period" data-en="per month" data-es="por mes">per month</div>
+                    <ul class="features-list">
+                        <li data-en="1 AI Sales Bot" data-es="1 Bot de Ventas IA">1 AI Sales Bot</li>
+                        <li data-en="1,000 Conversations/month" data-es="1,000 Conversaciones/mes">1,000 Conversations/month</li>
+                        <li data-en="Basic Analytics" data-es="Analíticas Básicas">Basic Analytics</li>
+                        <li data-en="Email Support" data-es="Soporte por Email">Email Support</li>
+                        <li data-en="CRM Integration" data-es="Integración CRM">CRM Integration</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <h3 data-en="Professional" data-es="Profesional">Professional</h3>
+                    <div class="price">$299</div>
+                    <div class="price-period" data-en="per month" data-es="por mes">per month</div>
+                    <ul class="features-list">
+                        <li data-en="5 AI Sales Bots" data-es="5 Bots de Ventas IA">5 AI Sales Bots</li>
+                        <li data-en="10,000 Conversations/month" data-es="10,000 Conversaciones/mes">10,000 Conversations/month</li>
+                        <li data-en="Advanced Analytics" data-es="Analíticas Avanzadas">Advanced Analytics</li>
+                        <li data-en="Priority Support" data-es="Soporte Prioritario">Priority Support</li>
+                        <li data-en="All Integrations" data-es="Todas las Integraciones">All Integrations</li>
+                        <li data-en="Custom Training" data-es="Entrenamiento Personalizado">Custom Training</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3 data-en="Enterprise" data-es="Empresarial">Enterprise</h3>
+                    <div class="price" data-en="Custom" data-es="Personalizado">Custom</div>
+                    <div class="price-period" data-en="pricing" data-es="precios">pricing</div>
+                    <ul class="features-list">
+                        <li data-en="Unlimited AI Bots" data-es="Bots IA Ilimitados">Unlimited AI Bots</li>
+                        <li data-en="Unlimited Conversations" data-es="Conversaciones Ilimitadas">Unlimited Conversations</li>
+                        <li data-en="Custom Analytics" data-es="Analíticas Personalizadas">Custom Analytics</li>
+                        <li data-en="Dedicated Manager" data-es="Manager Dedicado">Dedicated Manager</li>
+                        <li data-en="White-label Solution" data-es="Solución Marca Blanca">White-label Solution</li>
+                        <li data-en="On-premise Deployment" data-es="Implementación Local">On-premise Deployment</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-content fade-in">
+            <h2 data-en="Your Success Story Starts Here" data-es="Tu Historia de Éxito Comienza Aquí">Your Success Story Starts Here</h2>
+            <p data-en="The algorithm of success has been written. Your growth trajectory is now inevitable with Maktub AI's intelligent automation." data-es="El algoritmo del éxito ha sido escrito. Tu trayectoria de crecimiento ahora es inevitable con la automatización inteligente de Maktub AI.">The algorithm of success has been written. Your growth trajectory is now inevitable with Maktub AI's intelligent automation.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" data-placeholder-en="First Name" data-placeholder-es="Nombre" placeholder="First Name" required>
+                    <input type="text" data-placeholder-en="Last Name" data-placeholder-es="Apellido" placeholder="Last Name" required>
+                </div>
+                <input type="email" data-placeholder-en="Email Address" data-placeholder-es="Correo Electrónico" placeholder="Email Address" required>
+                <input type="tel" data-placeholder-en="Phone Number" data-placeholder-es="Número de Teléfono" placeholder="Phone Number">
+                <input type="text" data-placeholder-en="Company Name" data-placeholder-es="Nombre de la Empresa" placeholder="Company Name">
+                <textarea data-placeholder-en="Tell us about your business needs" data-placeholder-es="Cuéntanos sobre las necesidades de tu negocio" placeholder="Tell us about your business needs"></textarea>
+                <button type="submit" class="btn-primary" data-en="Execute Success Protocol" data-es="Ejecutar Protocolo de Éxito">Execute Success Protocol</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Maktub AI</h3>
+                <p data-en="&quot;It is written.&quot; In code, algorithms, and intelligent automation. Your business success is no longer left to chance." data-es="&quot;Está escrito.&quot; En código, algoritmos y automatización inteligente. Tu éxito empresarial ya no se deja al azar."><em>"It is written."</em> In code, algorithms, and intelligent automation. Your business success is no longer left to chance.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 data-en="Product" data-es="Producto">Product</h3>
+                <a href="#features" data-en="Features" data-es="Características">Features</a>
+                <a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a>
+                <a href="#" data-en="API Documentation" data-es="Documentación API">API Documentation</a>
+                <a href="#" data-en="Integrations" data-es="Integraciones">Integrations</a>
+            </div>
+            <div class="footer-section">
+                <h3 data-en="Company" data-es="Empresa">Company</h3>
+                <a href="#" data-en="About Us" data-es="Sobre Nosotros">About Us</a>
+                <a href="#" data-en="Careers" data-es="Carreras">Careers</a>
+                <a href="#" data-en="Blog" data-es="Blog">Blog</a>
+                <a href="#" data-en="Press" data-es="Prensa">Press</a>
+            </div>
+            <div class="footer-section">
+                <h3 data-en="Support" data-es="Soporte">Support</h3>
+                <a href="#" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
+                <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+                <a href="#" data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a>
+                <a href="#" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-en="&copy; 2025 Maktub AI. All rights reserved. • &quot;AI-Powered Sales Automation&quot;" data-es="&copy; 2025 Maktub AI. Todos los derechos reservados. • &quot;Automatización de Ventas con IA&quot;">&copy; 2025 Maktub AI. All rights reserved. • "AI-Powered Sales Automation"</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'en';
+        
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+            
+            // Update all text content
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+            
+            // Update form placeholders
+            document.querySelectorAll('[data-placeholder-en]').forEach(element => {
+                const placeholder = element.getAttribute(`data-placeholder-${lang}`);
+                if (placeholder) {
+                    element.placeholder = placeholder;
+                }
+            });
+            
+            // Special handling for HTML content with quotes
+            const footerDescription = document.querySelector('.footer-section p[data-en]');
+            if (footerDescription) {
+                const content = footerDescription.getAttribute(`data-${lang}`);
+                if (content) {
+                    footerDescription.innerHTML = content;
+                }
+            }
+        }
+
+        // Language switcher event listeners
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.getAttribute('data-lang'));
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Show success message based on current language
+            const messages = {
+                en: 'Your destiny awaits! We\'ll contact you within 24 hours to begin your Maktub AI journey.',
+                es: '¡Tu destino te espera! Te contactaremos dentro de 24 horas para comenzar tu viaje con Maktub AI.'
+            };
+            
+            alert(messages[currentLanguage]);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.feature-card, .use-case-card, .pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
