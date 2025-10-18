@@ -392,21 +392,21 @@
             color: #b0b0b0;
         }
 
-        /* Pricing Section */
-        .pricing {
+        /* Services Section */
+        .services {
             padding: 6rem 2rem;
             background: #1a1a1a;
         }
 
-        .pricing-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
         }
 
-        .pricing-card {
+        .service-card {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 255, 65, 0.08));
             padding: 3rem 2rem;
             border-radius: 20px;
@@ -414,73 +414,70 @@
             text-align: center;
             transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
         }
 
-        .pricing-card.featured {
-            border-color: #00ff41;
-            transform: scale(1.05);
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.12), rgba(0, 255, 65, 0.08));
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
-        }
-
-        .pricing-card.featured::before {
-            content: 'Most Popular';
+        .service-card::before {
+            content: '';
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #00ff41;
-            color: #000000;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-10px) scale(1.02);
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3);
+            border-color: #00ff41;
         }
 
-        .pricing-card h3 {
+        .service-icon {
+            font-size: 3rem;
+            color: #00ff41;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+        }
+
+        .service-card h3 {
             color: #ffffff;
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #00ff41;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        .service-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
         }
 
-        .price-period {
+        .consultation-cta {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(0, 255, 255, 0.05));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .consultation-cta h3 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .consultation-cta p {
+            font-size: 1.1rem;
             color: #b0b0b0;
             margin-bottom: 2rem;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .features-list li {
-            color: #b0b0b0;
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .features-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #00ff41;
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
+            line-height: 1.6;
         }
 
         /* Contact Section */
@@ -707,7 +704,7 @@
                 <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
                 <li><a href="#features" data-en="Features" data-es="Características">Features</a></li>
                 <li><a href="#use-cases" data-en="Use Cases" data-es="Casos de Uso">Use Cases</a></li>
-                <li><a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a></li>
+                <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
                 <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
             </ul>
             <div class="nav-right">
@@ -839,54 +836,39 @@
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
+    <section id="services" class="services">
         <div class="container">
             <div class="section-title fade-in">
-                <h2 data-en="Choose Your Destiny" data-es="Elige Tu Destino">Choose Your Destiny</h2>
-                <p data-en="Every journey begins with a single step. Choose the path that's written for you." data-es="Cada viaje comienza con un solo paso. Elige el camino que está escrito para ti.">Every journey begins with a single step. Choose the path that's written for you.</p>
+                <h2 data-en="AI Consulting Services" data-es="Servicios de Consultoría IA">AI Consulting Services</h2>
+                <p data-en="We help companies build their own custom AI tools and automation solutions tailored to their unique needs" data-es="Ayudamos a las empresas a construir sus propias herramientas de IA personalizadas y soluciones de automatización adaptadas a sus necesidades únicas">We help companies build their own custom AI tools and automation solutions tailored to their unique needs</p>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card fade-in">
-                    <h3 data-en="Starter" data-es="Iniciador">Starter</h3>
-                    <div class="price">$99</div>
-                    <div class="price-period" data-en="per month" data-es="por mes">per month</div>
-                    <ul class="features-list">
-                        <li data-en="1 AI Sales Bot" data-es="1 Bot de Ventas IA">1 AI Sales Bot</li>
-                        <li data-en="1,000 Conversations/month" data-es="1,000 Conversaciones/mes">1,000 Conversations/month</li>
-                        <li data-en="Basic Analytics" data-es="Analíticas Básicas">Basic Analytics</li>
-                        <li data-en="Email Support" data-es="Soporte por Email">Email Support</li>
-                        <li data-en="CRM Integration" data-es="Integración CRM">CRM Integration</li>
-                    </ul>
-                    <a href="mailto:info@maktub-ai.com?subject=Starter Plan Inquiry" class="btn-secondary" data-en="Get Started" data-es="Comenzar">Get Started</a>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 data-en="Custom AI Development" data-es="Desarrollo de IA Personalizado">Custom AI Development</h3>
+                    <p data-en="We design and build AI solutions from the ground up, perfectly aligned with your business processes and objectives. Your vision, powered by our expertise." data-es="Diseñamos y construimos soluciones de IA desde cero, perfectamente alineadas con tus procesos y objetivos comerciales. Tu visión, impulsada por nuestra experiencia.">We design and build AI solutions from the ground up, perfectly aligned with your business processes and objectives. Your vision, powered by our expertise.</p>
                 </div>
-                <div class="pricing-card featured fade-in">
-                    <h3 data-en="Professional" data-es="Profesional">Professional</h3>
-                    <div class="price">$299</div>
-                    <div class="price-period" data-en="per month" data-es="por mes">per month</div>
-                    <ul class="features-list">
-                        <li data-en="5 AI Sales Bots" data-es="5 Bots de Ventas IA">5 AI Sales Bots</li>
-                        <li data-en="10,000 Conversations/month" data-es="10,000 Conversaciones/mes">10,000 Conversations/month</li>
-                        <li data-en="Advanced Analytics" data-es="Analíticas Avanzadas">Advanced Analytics</li>
-                        <li data-en="Priority Support" data-es="Soporte Prioritario">Priority Support</li>
-                        <li data-en="All Integrations" data-es="Todas las Integraciones">All Integrations</li>
-                        <li data-en="Custom Training" data-es="Entrenamiento Personalizado">Custom Training</li>
-                    </ul>
-                    <a href="mailto:info@maktub-ai.com?subject=Professional Plan Inquiry" class="btn-primary" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 data-en="Team Training & Knowledge Transfer" data-es="Capacitación de Equipos y Transferencia de Conocimiento">Team Training & Knowledge Transfer</h3>
+                    <p data-en="We don't just build your AI tools – we empower your team to understand, maintain, and evolve them. Complete knowledge transfer ensures long-term success." data-es="No solo construimos tus herramientas de IA: empoderamos a tu equipo para comprenderlas, mantenerlas y evolucionarlas. La transferencia completa de conocimiento garantiza el éxito a largo plazo.">We don't just build your AI tools – we empower your team to understand, maintain, and evolve them. Complete knowledge transfer ensures long-term success.</p>
                 </div>
-                <div class="pricing-card fade-in">
-                    <h3 data-en="Enterprise" data-es="Empresarial">Enterprise</h3>
-                    <div class="price" data-en="Custom" data-es="Personalizado">Custom</div>
-                    <div class="price-period" data-en="pricing" data-es="precios">pricing</div>
-                    <ul class="features-list">
-                        <li data-en="Unlimited AI Bots" data-es="Bots IA Ilimitados">Unlimited AI Bots</li>
-                        <li data-en="Unlimited Conversations" data-es="Conversaciones Ilimitadas">Unlimited Conversations</li>
-                        <li data-en="Custom Analytics" data-es="Analíticas Personalizadas">Custom Analytics</li>
-                        <li data-en="Dedicated Manager" data-es="Manager Dedicado">Dedicated Manager</li>
-                        <li data-en="White-label Solution" data-es="Solución Marca Blanca">White-label Solution</li>
-                        <li data-en="On-premise Deployment" data-es="Implementación Local">On-premise Deployment</li>
-                    </ul>
-                    <a href="mailto:info@maktub-ai.com?subject=Enterprise Plan Inquiry" class="btn-secondary" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 data-en="End-to-End Implementation" data-es="Implementación de Principio a Fin">End-to-End Implementation</h3>
+                    <p data-en="From initial consultation to deployment and beyond. We handle the entire journey of creating your AI infrastructure, ensuring seamless integration with existing systems." data-es="Desde la consulta inicial hasta la implementación y más allá. Manejamos todo el viaje de crear tu infraestructura de IA, asegurando una integración perfecta con los sistemas existentes.">From initial consultation to deployment and beyond. We handle the entire journey of creating your AI infrastructure, ensuring seamless integration with existing systems.</p>
                 </div>
+            </div>
+            <div class="consultation-cta fade-in">
+                <h3 data-en="Ready to Build Your Own AI Future?" data-es="¿Listo para Construir Tu Propio Futuro con IA?">Ready to Build Your Own AI Future?</h3>
+                <p data-en="Let's discuss how custom AI tools can transform your business operations and create competitive advantages that are uniquely yours." data-es="Discutamos cómo las herramientas de IA personalizadas pueden transformar tus operaciones comerciales y crear ventajas competitivas que sean únicamente tuyas.">Let's discuss how custom AI tools can transform your business operations and create competitive advantages that are uniquely yours.</p>
+                <a href="mailto:info@maktub-ai.com?subject=AI Consulting Services Inquiry" class="btn-primary" data-en="Schedule Consultation" data-es="Programar Consulta">Schedule Consultation</a>
             </div>
         </div>
     </section>
