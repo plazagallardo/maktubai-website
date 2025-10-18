@@ -507,6 +507,38 @@
             margin-bottom: 3rem;
         }
 
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #00ff41;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .contact-item a {
+            color: #00ff41;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.7);
+            transform: translateY(-2px);
+        }
+
         .contact-form {
             display: grid;
             gap: 1.5rem;
@@ -647,6 +679,11 @@
             .use-cases-grid {
                 grid-template-columns: 1fr;
             }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         /* Scroll animations */
@@ -690,8 +727,8 @@
             <h1 data-en="AI-Powered Sales Automation That Delivers Results" data-es="Automatización de Ventas con IA Que Entrega Resultados">AI-Powered Sales Automation That Delivers Results</h1>
             <p data-en="Deploy intelligent sales bots that work 24/7 to convert leads, close deals, and scale your revenue. With Maktub AI, your success isn't left to chance – it's written in code." data-es="Despliega bots de ventas inteligentes que trabajen 24/7 para convertir clientes potenciales, cerrar tratos y escalar tus ingresos. Con Maktub AI, tu éxito no se deja al azar: está escrito en código.">Deploy intelligent sales bots that work 24/7 to convert leads, close deals, and scale your revenue. With Maktub AI, your success isn't left to chance – it's written in code.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary" data-en="Start Free Trial" data-es="Comenzar Prueba Gratuita">Start Free Trial</a>
-                <a href="#features" class="btn-secondary" data-en="View Demo" data-es="Ver Demo">View Demo</a>
+                <a href="mailto:info@maktub-ai.com?subject=Free Trial Request" class="btn-primary" data-en="Start Free Trial" data-es="Comenzar Prueba Gratuita">Start Free Trial</a>
+                <a href="mailto:info@maktub-ai.com?subject=Demo Request" class="btn-secondary" data-en="View Demo" data-es="Ver Demo">View Demo</a>
             </div>
         </div>
     </section>
@@ -820,7 +857,7 @@
                         <li data-en="Email Support" data-es="Soporte por Email">Email Support</li>
                         <li data-en="CRM Integration" data-es="Integración CRM">CRM Integration</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                    <a href="mailto:info@maktub-ai.com?subject=Starter Plan Inquiry" class="btn-secondary" data-en="Get Started" data-es="Comenzar">Get Started</a>
                 </div>
                 <div class="pricing-card featured fade-in">
                     <h3 data-en="Professional" data-es="Profesional">Professional</h3>
@@ -834,7 +871,7 @@
                         <li data-en="All Integrations" data-es="Todas las Integraciones">All Integrations</li>
                         <li data-en="Custom Training" data-es="Entrenamiento Personalizado">Custom Training</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" data-en="Get Started" data-es="Comenzar">Get Started</a>
+                    <a href="mailto:info@maktub-ai.com?subject=Professional Plan Inquiry" class="btn-primary" data-en="Get Started" data-es="Comenzar">Get Started</a>
                 </div>
                 <div class="pricing-card fade-in">
                     <h3 data-en="Enterprise" data-es="Empresarial">Enterprise</h3>
@@ -848,7 +885,7 @@
                         <li data-en="White-label Solution" data-es="Solución Marca Blanca">White-label Solution</li>
                         <li data-en="On-premise Deployment" data-es="Implementación Local">On-premise Deployment</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+                    <a href="mailto:info@maktub-ai.com?subject=Enterprise Plan Inquiry" class="btn-secondary" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -858,15 +895,23 @@
         <div class="contact-content fade-in">
             <h2 data-en="Your Success Story Starts Here" data-es="Tu Historia de Éxito Comienza Aquí">Your Success Story Starts Here</h2>
             <p data-en="The algorithm of success has been written. Your growth trajectory is now inevitable with Maktub AI's intelligent automation." data-es="El algoritmo del éxito ha sido escrito. Tu trayectoria de crecimiento ahora es inevitable con la automatización inteligente de Maktub AI.">The algorithm of success has been written. Your growth trajectory is now inevitable with Maktub AI's intelligent automation.</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" data-placeholder-en="First Name" data-placeholder-es="Nombre" placeholder="First Name" required>
-                    <input type="text" data-placeholder-en="Last Name" data-placeholder-es="Apellido" placeholder="Last Name" required>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@maktub-ai.com">info@maktub-ai.com</a>
                 </div>
-                <input type="email" data-placeholder-en="Email Address" data-placeholder-es="Correo Electrónico" placeholder="Email Address" required>
-                <input type="tel" data-placeholder-en="Phone Number" data-placeholder-es="Número de Teléfono" placeholder="Phone Number">
-                <input type="text" data-placeholder-en="Company Name" data-placeholder-es="Nombre de la Empresa" placeholder="Company Name">
-                <textarea data-placeholder-en="Tell us about your business needs" data-placeholder-es="Cuéntanos sobre las necesidades de tu negocio" placeholder="Tell us about your business needs"></textarea>
+            </div>
+
+            <form class="contact-form" action="mailto:info@maktub-ai.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <input type="text" name="first_name" data-placeholder-en="First Name" data-placeholder-es="Nombre" placeholder="First Name" required>
+                    <input type="text" name="last_name" data-placeholder-en="Last Name" data-placeholder-es="Apellido" placeholder="Last Name" required>
+                </div>
+                <input type="email" name="email" data-placeholder-en="Email Address" data-placeholder-es="Correo Electrónico" placeholder="Email Address" required>
+                <input type="tel" name="phone" data-placeholder-en="Phone Number" data-placeholder-es="Número de Teléfono" placeholder="Phone Number">
+                <input type="text" name="company" data-placeholder-en="Company Name" data-placeholder-es="Nombre de la Empresa" placeholder="Company Name">
+                <textarea name="message" data-placeholder-en="Tell us about your business needs" data-placeholder-es="Cuéntanos sobre las necesidades de tu negocio" placeholder="Tell us about your business needs"></textarea>
                 <button type="submit" class="btn-primary" data-en="Execute Success Protocol" data-es="Ejecutar Protocolo de Éxito">Execute Success Protocol</button>
             </form>
         </div>
@@ -888,26 +933,26 @@
                 <h3 data-en="Product" data-es="Producto">Product</h3>
                 <a href="#features" data-en="Features" data-es="Características">Features</a>
                 <a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a>
-                <a href="#" data-en="API Documentation" data-es="Documentación API">API Documentation</a>
-                <a href="#" data-en="Integrations" data-es="Integraciones">Integrations</a>
+                <a href="mailto:info@maktub-ai.com?subject=API Documentation Request" data-en="API Documentation" data-es="Documentación API">API Documentation</a>
+                <a href="mailto:info@maktub-ai.com?subject=Integrations Inquiry" data-en="Integrations" data-es="Integraciones">Integrations</a>
             </div>
             <div class="footer-section">
                 <h3 data-en="Company" data-es="Empresa">Company</h3>
-                <a href="#" data-en="About Us" data-es="Sobre Nosotros">About Us</a>
-                <a href="#" data-en="Careers" data-es="Carreras">Careers</a>
-                <a href="#" data-en="Blog" data-es="Blog">Blog</a>
-                <a href="#" data-en="Press" data-es="Prensa">Press</a>
+                <a href="mailto:info@maktub-ai.com?subject=About Us Inquiry" data-en="About Us" data-es="Sobre Nosotros">About Us</a>
+                <a href="mailto:info@maktub-ai.com?subject=Career Opportunities" data-en="Careers" data-es="Carreras">Careers</a>
+                <a href="mailto:info@maktub-ai.com?subject=Blog Access Request" data-en="Blog" data-es="Blog">Blog</a>
+                <a href="mailto:info@maktub-ai.com?subject=Press Inquiry" data-en="Press" data-es="Prensa">Press</a>
             </div>
             <div class="footer-section">
                 <h3 data-en="Support" data-es="Soporte">Support</h3>
-                <a href="#" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
+                <a href="mailto:info@maktub-ai.com?subject=Help Request" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
                 <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
-                <a href="#" data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a>
-                <a href="#" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a>
+                <a href="mailto:info@maktub-ai.com?subject=Privacy Policy Request" data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a>
+                <a href="mailto:info@maktub-ai.com?subject=Terms of Service Request" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p data-en="&copy; 2025 Maktub AI. All rights reserved. • &quot;AI-Powered Sales Automation&quot;" data-es="&copy; 2025 Maktub AI. Todos los derechos reservados. • &quot;Automatización de Ventas con IA&quot;">&copy; 2025 Maktub AI. All rights reserved. • "AI-Powered Sales Automation"</p>
+            <p data-en="&copy; 2025 Maktub AI. All rights reserved. • &quot;AI-Powered Sales Automation&quot; • Contact: info@maktub-ai.com" data-es="&copy; 2025 Maktub AI. Todos los derechos reservados. • &quot;Automatización de Ventas con IA&quot; • Contacto: info@maktub-ai.com">&copy; 2025 Maktub AI. All rights reserved. • "AI-Powered Sales Automation" • Contact: info@maktub-ai.com</p>
         </div>
     </footer>
 
@@ -1010,6 +1055,17 @@
             
             // Get form data
             const formData = new FormData(this);
+            
+            // Create email body
+            let emailBody = '';
+            for (let [key, value] of formData.entries()) {
+                emailBody += `${key.replace('_', ' ').charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}: ${value}\n`;
+            }
+            
+            // Create mailto link with form data
+            const subject = encodeURIComponent('New Contact Form Submission - Maktub AI');
+            const body = encodeURIComponent(emailBody);
+            window.location.href = `mailto:info@maktub-ai.com?subject=${subject}&body=${body}`;
             
             // Show success message based on current language
             const messages = {
